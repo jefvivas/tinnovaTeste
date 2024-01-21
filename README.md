@@ -1,46 +1,32 @@
-# Getting Started with Create React App
+# Teste Frontend Junior - Tinnova
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Scripts disponíveis
 
-## Available Scripts
-
-In the project directory, you can run:
+Partindo da raíz do projeto, há dois scripts para serem utilizados.
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Onde você irá de fato iniciar o projeto, podendo utilizar o aplicativo criado.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Onde irá rodar os testes unitários criados. Além de rodar os testes unitários para todas as funções criadas em arquivos ".ts", ele irá colher toda cobertura de testes e exibir na tela.
 
-### `npm run build`
+## Sobre o projeto
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Embora não tenha sido pedido, todo projeto foi feito utilizando typescript, por questões de preferência pessoal.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Foi também feita a separação de vários componentes ou funções que foram utilizadas apenas uma vez no projeto. Mesmo podendo ter chamado direto nesse único local onde é usada, eu preferi fazer de maneira separada para melhorar a organização e facilitar na atomização dos testes.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Soluções utilizadas
 
-### `npm run eject`
+Cada input no formulário de criação de usuário tem uma função de validação do seu campo, essa função é utilizada para exibir que o campo é inválido ou não.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Há também uma função atrelada ao botão de cadastrar, onde fará com que ele fique desabilitado caso qualquer um dos quatro campos de inputs sejam inválidos.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Foi utilizado LocalStorage para persistir os dados. Criei um context para manter os usuários sincronizados entre todas as páginas, me permitindo atualizar facilmente os usuários da lista quando houver a inserção de um novo usuário.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Fiz também uma validação para que não permita inserir um usuário com email ou cpf já existente
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
