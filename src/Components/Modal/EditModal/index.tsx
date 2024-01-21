@@ -126,7 +126,7 @@ const EditModal = ({ user, isOpen, closeModal }: EditModalProps) => {
         <RequestButton
           type="submit"
           isLoading={isLoading}
-          text="Cadastrar"
+          text="Editar"
           isEnabled={isEnabled(formData)}
         />
       </EditForm>
