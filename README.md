@@ -26,7 +26,9 @@ Há também uma função atrelada ao botão de cadastrar, onde fará com que ele
 
 Foi utilizado LocalStorage para persistir os dados. Criei um context para manter os usuários sincronizados entre todas as páginas, me permitindo atualizar facilmente os usuários da lista quando houver a inserção de um novo usuário.
 
-Fiz também uma validação para que não permita inserir um usuário com email ou cpf já existente
+Fiz também uma validação para que não permita inserir um usuário com email ou cpf já existente.
+
+Há um timer no momento em que simula a inserção de um usuário no banco de dados para que possamos ver o spinner do botão, já que por estar utilizando localStorage, a inserção acontece quase que instantaneamente e poderia dificultar ver o spinner.
 
 
 

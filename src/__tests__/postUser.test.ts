@@ -2,7 +2,7 @@ import { postUser } from "../Services/PostUser";
 import "jest-localstorage-mock";
 
 describe("Test postUser function", () => {
-  const newUSer = {
+  const newUser = {
     name: "someName",
     email: "someMail",
     phone: "11111111",
@@ -17,23 +17,23 @@ describe("Test postUser function", () => {
   };
 
   it("should create a new user", () => {
-    const createdUser = postUser(newUSer);
+    const createdUser = postUser(newUser);
 
-    expect(createdUser).toEqual(newUSer);
+    expect(createdUser).toEqual(newUser);
   });
 
-  it("Should return an empty object when trying to create an user with same cpf", () => {
-    postUser(newUSer);
-    const secondUser = postUser(newUSer);
+  it("Should return null when trying to create an user with same cpf", () => {
+    postUser(newUser);
+    const secondUser = postUser(newUser);
 
-    expect(secondUser).toEqual({});
+    expect(secondUser).toEqual(null);
   });
 
-  it("Should return an empty object when trying to create an user with same email", () => {
-    postUser(newUSer);
+  it("Should return null when trying to create an user with same email", () => {
+    postUser(newUser);
     const secondUser = postUser(sameEmailUser);
 
-    expect(secondUser).toEqual({});
+    expect(secondUser).toEqual(null);
   });
 
   it("Should return an empty object when failing", () => {
@@ -42,7 +42,7 @@ describe("Test postUser function", () => {
       throw new Error("SomeError");
     });
 
-    const createdUser = postUser(newUSer);
+    const createdUser = postUser(newUser);
     expect(createdUser).toEqual({});
   });
 });

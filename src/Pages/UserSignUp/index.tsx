@@ -40,13 +40,15 @@ const UserSignUp = () => {
 
   const handleSignUp = (user: User) => {
     if (!isEnabled(user)) return;
-    postUser(user);
+    const createdUser = postUser(user);
+    if (!createdUser) return;
     setUserData({
       name: "",
       email: "",
       cpf: "",
       phone: "",
     });
+    setUsers((existingUsers) => [...existingUsers, userData]);
   };
 
   const isEnabled = (userData: User): boolean => {
@@ -72,7 +74,6 @@ const UserSignUp = () => {
 
     setTimeout(() => {
       handleSignUp(userData);
-      setUsers((existingUsers) => [...existingUsers, userData]);
       setIsLoading(false);
     }, 2000);
   };

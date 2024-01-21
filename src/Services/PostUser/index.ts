@@ -2,7 +2,7 @@ import { User } from "../../Interfaces/user";
 import { getUsersFromLocalStorage } from "../GetUsers";
 import { toast } from "react-toastify";
 
-export const postUser = (user: User): User => {
+export const postUser = (user: User): User | null => {
   try {
     const existingUsers = getUsersFromLocalStorage();
 
@@ -14,7 +14,7 @@ export const postUser = (user: User): User => {
     if (isDuplicate) {
       toast.error("CPF ou e-mail já cadastrados");
 
-      return {} as User;
+      return null;
     }
 
     const updatedUsers = [...existingUsers, user];
