@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 interface InputProps {
@@ -29,8 +28,8 @@ export const EditForm = styled.form`
 `;
 
 export const InputField = styled.input<InputProps>`
-  margin: 10px;
-  padding: 10px;
+  margin: 10px 10px 0 10px;
+  padding: 5px;
   width: 300px;
   border: none;
   border-bottom: 2px solid ${(props) => (props.isValid ? "#53514e" : "#eb4a46")};
@@ -39,21 +38,6 @@ export const InputField = styled.input<InputProps>`
 
   &:focus {
     color: #333333;
-  }
-`;
-
-export const NextPageButton = styled(Link)`
-  margin-top: 10px;
-  padding: 8px 16px;
-  background-color: #00c8b3;
-  color: white;
-  text-decoration: none;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.7;
   }
 `;
 
@@ -66,4 +50,9 @@ export const ErrorMessage = styled.span`
   margin-left: 10px;
   color: #eb4a46;
   font-size: 12px;
+`;
+
+export const InputContainer = styled.div`
+  position: relative;
+  height: 55px;
 `;

@@ -5,6 +5,7 @@ import {
   LoginForm,
   ErrorMessage,
   ErrorMessageWrapper,
+  InputContainer,
 } from "./styles";
 import RequestButton from "../../Components/RequestButton";
 import { postUser } from "../../Services/PostUser";
@@ -84,59 +85,66 @@ const UserSignUp = () => {
       <LoginContainer>
         <LoginForm onSubmit={handleSubmit}>
           <h2>Cadastrar Usuário</h2>
-          <InputField
-            type="text"
-            name="name"
-            placeholder="Nome Completo (sem abreviações)"
-            value={userData.name}
-            onChange={handleInputChange}
-            isValid={isNameValid(userData.name)}
-          />
-          {!isNameValid(userData.name) && (
-            <ErrorMessageWrapper>
-              <ErrorMessage>Nome deve ter 3 ou mais caracteres</ErrorMessage>
-            </ErrorMessageWrapper>
-          )}
-          <InputField
-            type="text"
-            name="email"
-            placeholder="Email"
-            value={userData.email}
-            onChange={handleInputChange}
-            isValid={isEmailValid(userData.email)}
-          />
-          {!isEmailValid(userData.email) && (
-            <ErrorMessageWrapper>
-              <ErrorMessage>Email inválido</ErrorMessage>
-            </ErrorMessageWrapper>
-          )}
-          <InputField
-            type="text"
-            name="cpf"
-            placeholder="CPF"
-            value={formatCpf(userData.cpf)}
-            onChange={handleInputChange}
-            isValid={isCpfValid(userData.cpf)}
-          />
-          {!isCpfValid(userData.cpf) && (
-            <ErrorMessageWrapper>
-              <ErrorMessage>CPF inválido</ErrorMessage>
-            </ErrorMessageWrapper>
-          )}
-
-          <InputField
-            type="text"
-            name="phone"
-            placeholder="Telefone"
-            value={formatPhone(userData.phone)}
-            onChange={handleInputChange}
-            isValid={isPhoneValid(userData.phone)}
-          />
-          {!isPhoneValid(userData.phone) && (
-            <ErrorMessageWrapper>
-              <ErrorMessage>Telefone deve ter 10 ou 11 números</ErrorMessage>
-            </ErrorMessageWrapper>
-          )}
+          <InputContainer>
+            <InputField
+              type="text"
+              name="name"
+              placeholder="Nome Completo (sem abreviações)"
+              value={userData.name}
+              onChange={handleInputChange}
+              isValid={isNameValid(userData.name)}
+            />
+            {!isNameValid(userData.name) && (
+              <ErrorMessageWrapper>
+                <ErrorMessage>Nome deve ter 3 ou mais caracteres</ErrorMessage>
+              </ErrorMessageWrapper>
+            )}
+          </InputContainer>
+          <InputContainer>
+            <InputField
+              type="text"
+              name="email"
+              placeholder="Email"
+              value={userData.email}
+              onChange={handleInputChange}
+              isValid={isEmailValid(userData.email)}
+            />
+            {!isEmailValid(userData.email) && (
+              <ErrorMessageWrapper>
+                <ErrorMessage>Email inválido</ErrorMessage>
+              </ErrorMessageWrapper>
+            )}
+          </InputContainer>
+          <InputContainer>
+            <InputField
+              type="text"
+              name="cpf"
+              placeholder="CPF"
+              value={formatCpf(userData.cpf)}
+              onChange={handleInputChange}
+              isValid={isCpfValid(userData.cpf)}
+            />
+            {!isCpfValid(userData.cpf) && (
+              <ErrorMessageWrapper>
+                <ErrorMessage>CPF inválido</ErrorMessage>
+              </ErrorMessageWrapper>
+            )}
+          </InputContainer>
+          <InputContainer>
+            <InputField
+              type="text"
+              name="phone"
+              placeholder="Telefone"
+              value={formatPhone(userData.phone)}
+              onChange={handleInputChange}
+              isValid={isPhoneValid(userData.phone)}
+            />
+            {!isPhoneValid(userData.phone) && (
+              <ErrorMessageWrapper>
+                <ErrorMessage>Telefone deve ter 10 ou 11 números</ErrorMessage>
+              </ErrorMessageWrapper>
+            )}
+          </InputContainer>
           <RequestButton
             type="submit"
             isLoading={isLoading}

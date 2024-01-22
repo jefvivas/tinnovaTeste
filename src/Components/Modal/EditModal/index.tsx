@@ -5,6 +5,7 @@ import {
   InputField,
   EditForm,
   ErrorMessageWrapper,
+  InputContainer,
 } from "./styles";
 import RequestButton from "../../../Components/RequestButton";
 import { User } from "../../../Interfaces/user";
@@ -84,45 +85,51 @@ const EditModal = ({ user, isOpen, closeModal }: EditModalProps) => {
   return (
     <ModalOverlay onClick={handleCloseModal}>
       <EditForm onSubmit={handleEdit}>
-        <InputField
-          type="text"
-          name="name"
-          placeholder="Nome Completo (sem abreviações)"
-          value={formData.name}
-          onChange={handleInputChange}
-          isValid={isNameValid(formData.name)}
-        />
-        {!isNameValid(formData.name) && (
-          <ErrorMessageWrapper>
-            <ErrorMessage>Nome deve ter 3 ou mais caracteres</ErrorMessage>
-          </ErrorMessageWrapper>
-        )}
-        <InputField
-          type="text"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleInputChange}
-          isValid={isEmailValid(formData.email)}
-        />
-        {!isEmailValid(formData.email) && (
-          <ErrorMessageWrapper>
-            <ErrorMessage>Email inválido</ErrorMessage>
-          </ErrorMessageWrapper>
-        )}
-        <InputField
-          type="text"
-          name="phone"
-          placeholder="Telefone"
-          value={formatPhone(formData.phone)}
-          onChange={handleInputChange}
-          isValid={isPhoneValid(formData.phone)}
-        />
-        {!isPhoneValid(formData.phone) && (
-          <ErrorMessageWrapper>
-            <ErrorMessage>Telefone deve ter 10 ou 11 números</ErrorMessage>
-          </ErrorMessageWrapper>
-        )}
+        <InputContainer>
+          <InputField
+            type="text"
+            name="name"
+            placeholder="Nome Completo (sem abreviações)"
+            value={formData.name}
+            onChange={handleInputChange}
+            isValid={isNameValid(formData.name)}
+          />
+          {!isNameValid(formData.name) && (
+            <ErrorMessageWrapper>
+              <ErrorMessage>Nome deve ter 3 ou mais caracteres</ErrorMessage>
+            </ErrorMessageWrapper>
+          )}
+        </InputContainer>
+        <InputContainer>
+          <InputField
+            type="text"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleInputChange}
+            isValid={isEmailValid(formData.email)}
+          />
+          {!isEmailValid(formData.email) && (
+            <ErrorMessageWrapper>
+              <ErrorMessage>Email inválido</ErrorMessage>
+            </ErrorMessageWrapper>
+          )}
+        </InputContainer>
+        <InputContainer>
+          <InputField
+            type="text"
+            name="phone"
+            placeholder="Telefone"
+            value={formatPhone(formData.phone)}
+            onChange={handleInputChange}
+            isValid={isPhoneValid(formData.phone)}
+          />
+          {!isPhoneValid(formData.phone) && (
+            <ErrorMessageWrapper>
+              <ErrorMessage>Telefone deve ter 10 ou 11 números</ErrorMessage>
+            </ErrorMessageWrapper>
+          )}
+        </InputContainer>
         <RequestButton
           type="submit"
           isLoading={isLoading}
