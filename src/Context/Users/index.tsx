@@ -23,14 +23,13 @@ export function UserProvider({ children }: UserProviderProps) {
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
-    if (!users.length) {
-      const fetchInitialUsers = async () => {
-        const initialUsers = await GetInitialUserList();
-        setUsers(initialUsers);
-      };
-      fetchInitialUsers();
-    }
-  }, [users]);
+    const fetchInitialUsers = async () => {
+      const initialUsers = await GetInitialUserList();
+      setUsers(initialUsers);
+    };
+
+    fetchInitialUsers();
+  }, []);
 
   return (
     <UserContext.Provider value={{ users, setUsers }}>
